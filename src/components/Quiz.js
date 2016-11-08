@@ -18,6 +18,7 @@ class Quiz extends Component {
           quizzes: response.data.quizzes,
           questions: response.data.quizzes[0].questions
         });
+        console.log(response);
       }).catch(function() {
         console.log('get request failed');
       });
