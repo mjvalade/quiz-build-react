@@ -10,16 +10,21 @@ class Quiz extends Component {
     };
   }
 
-  componentDidMount() {
-    axios.get('/quizzes')
-    .then((response) => {
-      this.setState({
-        quizzes: response.data.quizzes,
-        questions: response.data.quizzes[0].questions
+  getQuizzes() {
+    return axios.get('/quizzes', {
+    })
+      .then((response) => {
+        this.setState({
+          quizzes: response.data.quizzes,
+          questions: response.data.quizzes[0].questions
+        });
+      }).catch(function() {
+        console.log('get request failed');
       });
-    }).catch(() => {
-      console.log('get request failed');
-    });
+  }
+
+  componentDidMount() {
+    this.getQuizzes();
   }
 
   renderQuizTitle(state) {
