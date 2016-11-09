@@ -1,0 +1,26 @@
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+.quiz-title {
+  font-size: 2em;
+  text-align: center;
+}
+
+.quiz-container {
+  width: 90%;
+  margin: auto;
+}
+
+.question-title {
+  background: #08627D;
+  color: white;
+  margin: 0;
+  padding: 15px;
+}
+
+.answers {
+  background: #DDF4FB;
+  padding: 15px;
+  margin: 0;
+}
