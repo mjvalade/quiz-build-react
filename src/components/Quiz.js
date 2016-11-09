@@ -6,21 +6,25 @@ class Quiz extends Component {
   constructor() {
     super();
     this.state = {
-      // quizzes: {}
+
     };
   }
 
   componentDidMount() {
-      axios.get('/quizzes')
-        .then((response) => {
-          this.setState({
-            quizzes: response.data.quizzes
-          });
-        })
-        .catch((error) => {
-          console.log(error);
-      });
-    }
+    this.getQuizzes();
+  }
+
+  getQuizzes() {
+    axios.get('/quizzes')
+      .then((response) => {
+        this.setState({
+          quizzes: response.data.quizzes
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+    });
+  }
 
   render() {
     return (
