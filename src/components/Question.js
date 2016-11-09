@@ -1,5 +1,5 @@
 import React from 'react';
-import Answers from './Answers';
+import Answer from './Answer';
 
 const Question = (props) => {
   const { id, title, answers } = props;
@@ -9,13 +9,15 @@ const Question = (props) => {
       <h2 className="question-title">
         {title}
       </h2>
-
-      {answers.map((answers, id) =>
-        <Answers
-          key={id}
-          answers={answers}
-        />
-      )}
+      <form>
+        {answers.map((answers, i) =>
+          <Answer
+            key={i}
+            id={id}
+            answers={answers}
+          />
+        )}
+      </form>
     </section>
   );
 };
