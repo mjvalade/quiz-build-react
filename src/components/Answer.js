@@ -8,7 +8,6 @@ const Answer = (props) => {
       <label>
         <input
           type="radio"
-          id={id}
           name={id}
           value={answers.score}
         />
