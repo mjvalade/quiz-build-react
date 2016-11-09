@@ -1,25 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Answer from './Answer';
 
-const Question = (props) => {
-  const { id, title, answers } = props;
+class Question extends Component {
+  constructor() {
+    super();
+    this.state = {
+      selectedScore: null
+    };
+  }
 
-  return(
-    <section className="questions" key={id}>
-      <h2 className="question-title">
-        {title}
-      </h2>
-      <form>
-        {answers.map((answers, i) =>
-          <Answer
-            key={i}
-            id={id}
-            answers={answers}
-          />
-        )}
-      </form>
-    </section>
-  );
+
+  render() {
+    const { id, title, answers } = this.props;
+
+    return(
+      <section className="questions" key={id}>
+        <h2 className="question-title">
+          {title}
+        </h2>
+        <form>
+          {answers.map((answer, i) =>
+            <Answer
+              key={i}
+              id={id}
+              answer={answer}
+              handleClick={(score) => this.setState({selectedScore: score})}
+            />
+          )}
+        </form>
+      </section>
+    );
+  }
 };
 
 export default Question;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Answer = (props) => {
-  const { id, answers } = props;
+  const { id, answer } = props;
 
   return(
     <article className="answers">
@@ -9,9 +9,10 @@ const Answer = (props) => {
         <input
           type="radio"
           name={id}
-          value={answers.score}
+          value={answer.score}
+          onClick={(e) => props.handleClick(answer.score)}
         />
-        {answers.title}
+        {answer.title}
       </label>
     </article>
   );
